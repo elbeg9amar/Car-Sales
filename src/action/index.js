@@ -8,9 +8,9 @@ export const addFeature = (id) => {
     }
 }
 
-export const editFeature = (id) => {
+export const editFeature = (name) => {
     return {
         type:EDIT_FEATURE,
-        payload:id
+        payload:name
     }
 }
