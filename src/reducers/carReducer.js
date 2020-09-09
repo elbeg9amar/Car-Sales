@@ -1,3 +1,4 @@
+
 const initialState = {
     additionalPrice: 0,
     car: {
@@ -17,6 +18,7 @@ const initialState = {
 export const carReducer = (state = initialState, action) => {
     switch(action.type) {
         case "ADD_FEATURE":
+            const price = action.payload.price
             return{
                 ...state,
                 car: {
@@ -24,11 +26,7 @@ export const carReducer = (state = initialState, action) => {
                         ...state.car.features, state.additionalFeatures.find((feature => feature.id===action.payload.id) )
                     ]
                 },
-                additionalPrice: {
-                    ...state,additionalPrice:  action.payload.price
-                }
-                    
-                
+                additionalPrice: state.car.features.reduce((total, obj)=> total + obj.price,state.additionalPrice )
             }
         case "EDIT_FEATURE":
             console.log(action.payload)
@@ -36,7 +34,8 @@ export const carReducer = (state = initialState, action) => {
                 ...state,car: {
                     ...state.car, features: 
                         state.car.features.filter((feature => feature.id === action.payload.id) )
-                }
+                },
+                additionalPrice: state.car.features.reduce((total, obj)=> total - obj.price,state.additionalPrice)
             }
         default: return state
         
