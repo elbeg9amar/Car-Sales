@@ -1,16 +1,16 @@
-const ADD_FEATURE = "ADD_FEATURE"
-const EDIT_FEATURE = "EDIT_FEATURE"
+export const ADD_FEATURE = "ADD_FEATURE"
+export const EDIT_FEATURE = "EDIT_FEATURE"
 
-export const addFeature = (id) => {
+export const addFeature = (feature) => {
     return {
         type:ADD_FEATURE,
-        payload:id
+        payload:feature
     }
 }
 
-export const editFeature = (name) => {
+export const editFeature = (feature) => {
     return {
         type:EDIT_FEATURE,
-        payload:name
+        payload:feature
     }
 }

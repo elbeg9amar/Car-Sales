@@ -4,7 +4,7 @@ import React from 'react';
 const AddedFeature = props => {
   const editFeature = (e) =>{
     e.preventDefault();
-    props.editFeature(props.feature.name)
+    props.editFeature(props.feature)
   }
   return (
     <li>

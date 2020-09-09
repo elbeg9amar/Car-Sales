@@ -3,7 +3,7 @@ import React from 'react';
 const AdditionalFeature = props => {
   const addFeature = (e) => {
     e.preventDefault();
-    props.addFeature(props.id)
+    props.addFeature(props.feature)
   }
   return (
     <li>
